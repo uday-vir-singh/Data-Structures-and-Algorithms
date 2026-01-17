@@ -6,6 +6,7 @@ class Solution:
             for j in brokenLetters:
                 if j in i:
                     canbetyped = False
+                    break
             if canbetyped == True:
                 count += 1
             else:
