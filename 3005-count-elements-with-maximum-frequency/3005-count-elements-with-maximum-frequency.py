@@ -1,23 +1,8 @@
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
-        count ={}
-        high =0
-        result =0
-
+        mapper = {} 
+        maxf = 0
         for i in nums:
-            if i in count:
-                count[i]+=1
-                
-            else:
-                
-                count[i]=1
-
-
-        for key in count:
-            high = max(high,count[key])
-
-        for key in count:
-            if high ==count[key]:
-                result +=high
-
-        return result
+            mapper[i] = mapper.get(i,0) + 1
+            maxf = max(maxf, mapper[i])
+        return sum(v for i,v in mapper.items() if v == maxf)
